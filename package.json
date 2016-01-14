@@ -1,0 +1,10 @@
+{
+  "name": "ng2-rest-website",
+  "version": "1.0.0",
+  "description": "Simple REST website in Angular 2 and NGRX",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}
