@@ -1,6 +1,7 @@
 //our root app component
 import {Component, Input, Output, EventEmitter, ChangeDetectionStrategy} from 'angular2/core'
-import {ItemsService} from './items'
+import {ItemsService, Item} from './items'
+import {Observable} from 'rxjs/Observable';
 import {Store} from '@ngrx/store'
 
 //-------------------------------------------------------------------
@@ -27,7 +28,7 @@ import {Store} from '@ngrx/store'
   `
 })
 class ItemList {
-  @Input() items: any[];
+  @Input() items: Item[];
   @Output() selected = new EventEmitter();
   @Output() deleted = new EventEmitter();
 }
@@ -70,7 +71,7 @@ class ItemList {
   `
 })
 class ItemDetail {
-  @Input() item: any[]
+  @Input() item: Item[];
   @Output() saved = new EventEmitter();
   @Output() cancelled = new EventEmitter();
 }
@@ -97,7 +98,10 @@ class ItemDetail {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class App {
-  constructor(private itemsService:ItemsService, private store:Store) {
+  items: Observable<Array<Item>>;
+  selectedItem: Observable<Item>;
+
+  constructor(private itemsService:ItemsService, private store: Store<Item>) {
     this.items = itemsService.items;
     this.selectedItem = store.select('selectedItem').filter(id => (id));
 
@@ -108,19 +112,19 @@ export class App {
   }
 
   resetItem() {
-    let emptyItem = {id: null, name:'', description:''};
+    let emptyItem: Item = {id: null, name:'', description:''};
     this.store.dispatch({type: 'SELECT_ITEM', payload: emptyItem});
   }
 
-  selectItem(item) {
+  selectItem(item: Item) {
     this.store.dispatch({type: 'SELECT_ITEM', payload: item});
   }
 
-  saveItem(item) {
+  saveItem(item: Item) {
     this.itemsService.saveItem(item);
   }
 
-  deleteItem(item) {
+  deleteItem(item: Item) {
     this.itemsService.deleteItem(item);
   }
 }

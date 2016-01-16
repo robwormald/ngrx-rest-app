@@ -1,26 +1,27 @@
 import {Http, Headers} from 'angular2/http'
 import {Store} from '@ngrx/store'
 import {Injectable} from 'angular2/core'
-import 'rxjs/Rx'
+import {Observable} from 'rxjs/Observable';
 
 //-------------------------------------------------------------------
 // ITEMS STORE
 //-------------------------------------------------------------------
-export const items = (state = [], {type, payload}) => {
+export const items = (state: any = [], {type, payload}) => {
+  let index:number;
   switch(type){
     case 'ADD_ITEMS':
       return payload;
     case 'CREATE_ITEM':
       return [...state, payload];
     case 'UPDATE_ITEM':
-      let index = state.findIndex((i) => i.id === payload.id);
+      index = state.findIndex((i: Item) => i.id === payload.id);
       return [
         ...state.slice(0, index),
         payload,
         ...state.slice(index + 1)
       ];
     case 'DELETE_ITEM':
-      let index = state.findIndex((i) => i.id === payload.id);
+      index = state.findIndex((i: Item) => i.id === payload.id);
       return [
         ...state.slice(0, index),
         ...state.slice(index + 1)
@@ -33,7 +34,7 @@ export const items = (state = [], {type, payload}) => {
 //-------------------------------------------------------------------
 // SELECTED ITEM STORE
 //-------------------------------------------------------------------
-export const selectedItem = (state = null, {type, payload}) => {
+export const selectedItem = (state: any = null, {type, payload}) => {
   switch(type){
     case 'SELECT_ITEM':
       return payload;
@@ -45,12 +46,20 @@ export const selectedItem = (state = null, {type, payload}) => {
 //-------------------------------------------------------------------
 // ITEMS SERVICE
 //-------------------------------------------------------------------
+const BASE_URL = 'http://localhost:3000/items/';
+const HEADER = { headers: new Headers({ 'Content-Type': 'application/json'})};
+
+export interface Item{
+  id: number;
+  name: string;
+  description: string;
+}
+
 @Injectable()
 export class ItemsService {
-  const BASE_URL = 'http://localhost:3000/items/';
-  const HEADER = { headers: new Headers({ 'Content-Type': 'application/json'})};
+  items: Observable<Array<Item>>;
 
-  constructor(private http:Http, private store:Store){
+  constructor(private http: Http, private store: Store<Item>){
     this.items = store.select('items');
   }
 
@@ -61,21 +70,21 @@ export class ItemsService {
       .subscribe(action => this.store.dispatch(action));
   }
 
-  saveItem(item) {
+  saveItem(item: Item) {
     (item.id) ? this.updateItem(item) : this.createItem(item);
   }
 
-  createItem(item) {
+  createItem(item: Item) {
     this.http.post(`${BASE_URL}`, JSON.stringify(item), HEADER)
       .subscribe(action => this.store.dispatch({type: 'CREATE_ITEM', payload: item}));
   }
 
-  updateItem(item) {
+  updateItem(item: Item) {
     this.http.put(`${BASE_URL}${item.id}`, JSON.stringify(item), HEADER)
       .subscribe(action => this.store.dispatch({type: 'UPDATE_ITEM', payload: item}));
   }
 
-  deleteItem(item) {
+  deleteItem(item: Item) {
     this.http.delete(`${BASE_URL}${item.id}`)
       .subscribe(action => this.store.dispatch({type: 'DELETE_ITEM', payload: item}));
   }

@@ -1,11 +1,30 @@
 {
   "name": "ng2-rest-website",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Simple REST website in Angular 2 and NGRX",
+  "repository": "https://github.com/simpulton/ngrx-rest-app",
   "scripts": {
     "server": "json-server --watch server/api/db.json",
-    "client": "serve client/ --port 3001"
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "client": "lite-server --baseDir './client' --baseDir './'",
+    "start": "concurrent \"npm run tsc:w\" \"npm run server\" \"npm run client\""
   },
-  "author": "",
+  "dependencies": {
+    "angular2": "^2.0.0-beta.0",
+    "systemjs": "^0.19.9",
+    "es6-promise": "^3.0.2",
+    "es6-shim": "^0.33.13",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "^5.0.0-beta.1",
+    "zone.js": "^0.5.10"
+  },
+  "devDependencies": {
+    "@ngrx/store": "^1.2.1",
+    "concurrently": "^1.0.0",
+    "lite-server": "^1.3.2",
+    "typescript": "^1.7.5"
+  },
+  "author": "Lukas Ruebbelke",
   "license": "MIT"
 }

@@ -5,13 +5,11 @@
     <title>Angular 2 REST Website</title>
     <link rel="stylesheet" href="assets/css/app.css">
 
-    <script src="https://code.angularjs.org/2.0.0-beta.0/angular2-polyfills.js"></script>
-    <script src="https://code.angularjs.org/tools/system.js"></script>
-    <script src="https://code.angularjs.org/tools/typescript.js"></script>
-    <script src="config.js"></script>
-    <script src="https://code.angularjs.org/2.0.0-beta.0/Rx.js"></script>
-    <script src="https://code.angularjs.org/2.0.0-beta.0/angular2.dev.js"></script>
-    <script src="https://code.angularjs.org/2.0.0-beta.0/http.dev.js"></script>
+    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+    <script src="node_modules/angular2/bundles/http.dev.js"></script>
 
     <!-- Material Design Lite -->
     <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
@@ -20,7 +18,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
     <script>
-      System.import ('app').catch(console.error.bind(console));
+        System.config({packages: {app: {format: 'register',defaultExtension: 'js'}}});
+        System.import('app/boot')
+              .then(null, console.error.bind(console));
     </script>
   </head>
 
