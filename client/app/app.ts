@@ -9,10 +9,20 @@ import {Store} from '@ngrx/store'
 @Component({
   selector: 'items-list',
   template: `
-    <div class="item" *ngFor="#item of items" (click)="selected.emit(item)">
-      <button type="button" class="close" (click)="deleted.emit(item)">&times;</button>
-      <h3>{{item.name}}</h3>
-      <p><strong>{{item.description}}</strong></p>
+    <div *ngFor="#item of items" (click)="selected.emit(item)"
+      class="item-card mdl-card mdl-shadow--2dp">
+      <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">{{item.name}}</h2>
+      </div>
+      <div class="mdl-card__supporting-text">
+        {{item.description}}
+      </div>
+      <div class="mdl-card__menu">
+        <button (click)="deleted.emit(item)"
+          class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+          <i class="material-icons">close</i>
+        </button>
+      </div>
     </div>
   `
 })
@@ -28,24 +38,34 @@ class ItemList {
 @Component({
   selector: 'item-detail',
   template: `
-  <div class="col-sm-8">
-    <h3 *ngIf="item.id">Editing {{item.name}}</h3>
-    <h3 *ngIf="!item.id">Create New Item</h3>
-    <hr/>
-    <form class="create-form" role="form" novalidate>
-        <div class="form-group">
+  <div class="item-card mdl-card mdl-shadow--2dp">
+    <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text" *ngIf="item.id">Editing {{item.name}}</h2>
+      <h2 class="mdl-card__title-text" *ngIf="!item.id">Create New Item</h2>
+    </div>
+    <div class="mdl-card__supporting-text">
+      <form novalidate>
+          <div class="mdl-textfield mdl-js-textfield">
             <label>Item Name</label>
-            <input type="text" class="form-control"
-                [(ngModel)]="item.name" placeholder="Enter name">
-        </div>
-        <div class="form-group">
+            <input [(ngModel)]="item.name"
+              placeholder="Enter a name"
+              class="mdl-textfield__input" type="text">
+          </div>
+
+          <div class="mdl-textfield mdl-js-textfield">
             <label>Item Description</label>
-            <input type="text" class="form-control"
-                [(ngModel)]="item.description" placeholder="Enter description">
-        </div>
-        <button type="submit" class="btn btn-info btn-lg" (click)="saved.emit(item)">Save</button>
-        <button type="button" class="btn btn-default btn-lg pull-right" (click)="cancelled.emit(item)">Cancel</button>
-    </form>
+            <input [(ngModel)]="item.description"
+              placeholder="Enter a description"
+              class="mdl-textfield__input" type="text">
+          </div>
+      </form>
+    </div>
+    <div class="mdl-card__actions">
+        <button type="submit" (click)="cancelled.emit(item)"
+          class="mdl-button mdl-js-button mdl-js-ripple-effect">Cancel</button>
+        <button type="submit" (click)="saved.emit(item)"
+          class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect">Save</button>
+    </div>
   </div>
   `
 })
@@ -62,14 +82,12 @@ class ItemDetail {
   selector: 'my-app',
   providers: [],
   template: `
-    <div class="col-sm-4">
-      <div class="portal col">
-        <items-list [items]="items | async"
-          (selected)="selectItem($event)" (deleted)="deleteItem($event)"></items-list>
-      </div>
+    <div class="mdl-cell mdl-cell--6-col">
+      <items-list [items]="items | async"
+        (selected)="selectItem($event)" (deleted)="deleteItem($event)">
+      </items-list>
     </div>
-
-    <div class="col-sm-8">
+    <div class="mdl-cell mdl-cell--6-col">
       <item-detail
         (saved)="saveItem($event)" (cancelled)="resetItem($event)"
         [item]="selectedItem | async">Select an Item</item-detail>
@@ -91,9 +109,6 @@ export class App {
 
   resetItem() {
     let emptyItem = {id: null, name:'', description:''};
-
-    console.log('HELLO WEEEEEEE!');
-
     this.store.dispatch({type: 'SELECT_ITEM', payload: emptyItem});
   }
 

@@ -1,41 +1,50 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <title>Angular 2 REST Website</title>
-  <link rel="stylesheet" href="assets/css/normalize.css">
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/css/app.css">
+  <head>
+    <title>Angular 2 REST Website</title>
+    <link rel="stylesheet" href="assets/css/app.css">
 
-  <script src="https://code.angularjs.org/2.0.0-beta.0/angular2-polyfills.js"></script>
-  <script src="https://code.angularjs.org/tools/system.js"></script>
-  <script src="https://code.angularjs.org/tools/typescript.js"></script>
-  <script src="config.js"></script>
-  <script src="https://code.angularjs.org/2.0.0-beta.0/Rx.js"></script>
-  <script src="https://code.angularjs.org/2.0.0-beta.0/angular2.dev.js"></script>
-  <script src="https://code.angularjs.org/2.0.0-beta.0/http.dev.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.0/angular2-polyfills.js"></script>
+    <script src="https://code.angularjs.org/tools/system.js"></script>
+    <script src="https://code.angularjs.org/tools/typescript.js"></script>
+    <script src="config.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.0/Rx.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.0/angular2.dev.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.0/http.dev.js"></script>
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <!-- Material Design Lite -->
+    <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
+    <!-- Material Design icon font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+    <script>
+      System.import ('app').catch(console.error.bind(console));
+    </script>
+  </head>
 
-  <script>
-    System.import('app')
-      .catch(console.error.bind(console));
-  </script>
-</head>
-
-<body>
-    <nav class="navbar navbar-default">
-      <img src="https://avatars2.githubusercontent.com/u/16272733?v=3&s=60" alt="ngrx" />
-    </nav>
-    <div class="container-fluid">
-        <div class="row">
-          <my-app class="wrapper">
-            Loading...
-          </my-app>
+  <body>
+    <div class="content mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title">ANGULAR 2 with NGRX</span>
+          <!-- Add spacer, to align navigation to the right -->
+          <div class="mdl-layout-spacer"></div>
+          <!-- Navigation. We hide it in small screens. -->
+          <nav class="mdl-navigation mdl-layout--large-screen-only">
+            <a class="mdl-navigation__link" href="https://angular.io/" target="_blank">ANGULAR 2</a>
+            <a class="mdl-navigation__link" href="https://github.com/ngrx/store" target="_blank">NGRX</a>
+            <a class="mdl-navigation__link" href="https://github.com/simpulton/ngrx-rest-app" target="_blank">SOURCE CODE</a>
+          </nav>
         </div>
+      </header>
+      <main class="mdl-layout__content page-content">
+        <my-app class="mdl-grid">
+          <div class="mdl-spinner mdl-js-spinner is-active"></div>
+        </my-app>
+      </main>
     </div>
-</body>
+  </body>
 
 </html>
