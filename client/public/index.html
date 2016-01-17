@@ -5,23 +5,15 @@
     <title>Angular 2 REST Website</title>
     <link rel="stylesheet" href="assets/css/app.css">
 
-    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
-    <script src="node_modules/systemjs/dist/system.src.js"></script>
-    <script src="node_modules/rxjs/bundles/Rx.js"></script>
-    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
-    <script src="node_modules/angular2/bundles/http.dev.js"></script>
-
     <!-- Material Design Lite -->
     <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
     <!-- Material Design icon font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
-    <script>
-        System.config({packages: {app: {format: 'register',defaultExtension: 'js'}}});
-        System.import('app/boot')
-              .then(null, console.error.bind(console));
-    </script>
+
+    <!-- base url -->
+    <base href="/">
   </head>
 
   <body>
@@ -45,6 +37,12 @@
         </my-app>
       </main>
     </div>
-  </body>
 
+    <!-- Common files to be cached -->
+    <script src="/__build__/common.js"></script>
+    <!-- Vendor files -->
+    <script src="/__build__/vendor.js"></script>
+    <!-- App script -->
+    <script src="/__build__/app.js"></script>
+  </body>
 </html>

@@ -1,28 +1,26 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "system",
-    "sourceMap": true,
+    "target": "ES5",
+    "module": "commonjs",
+    "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
-    "removeComments": false,
-    "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true
+    "sourceMap": true
   },
   "exclude": [
     "node_modules"
   ],
   "filesGlob": [
-    "client/app/**/*.ts"
+    "client/**/*.ts"
   ],
   "compileOnSave": false,
   "atom": {
     "rewriteTsconfig": true
   },
   "files": [
-    "client/app/app.ts",
-    "client/app/boot.ts",
-    "client/app/items.ts"
+    "client/bootstrap.ts",
+    "client/src/app.ts",
+    "client/src/items.ts",
+    "client/vendor.ts"
   ]
 }

@@ -1,9 +1,9 @@
 //main entry point
 import {bootstrap} from 'angular2/platform/browser';
-import {App} from './app';
-import {provideStore} from '@ngrx/store'
-import {ItemsService, items, selectedItem} from './items'
-import {HTTP_PROVIDERS} from 'angular2/http'
+import {App} from './src/app';
+import {provideStore} from '@ngrx/store';
+import {ItemsService, items, selectedItem} from './src/items';
+import {HTTP_PROVIDERS} from 'angular2/http';
 
 bootstrap(App, [
   ItemsService,
