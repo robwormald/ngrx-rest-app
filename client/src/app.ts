@@ -1,4 +1,3 @@
-//our root app component
 import {Component, Input, Output, EventEmitter, ChangeDetectionStrategy} from 'angular2/core';
 import {ItemsService, Item, AppStore} from './items';
 import {Observable} from 'rxjs/Observable';
@@ -41,7 +40,7 @@ class ItemList {
   template: `
   <div class="item-card mdl-card mdl-shadow--2dp">
     <div class="mdl-card__title">
-      <h2 class="mdl-card__title-text" *ngIf="selectedItem.id">Editing {{selectedItem.name}}</h2>
+      <h2 class="mdl-card__title-text" *ngIf="selectedItem.id">Editing {{originalName}}</h2>
       <h2 class="mdl-card__title-text" *ngIf="!selectedItem.id">Create New Item</h2>
     </div>
     <div class="mdl-card__supporting-text">
@@ -62,7 +61,7 @@ class ItemList {
       </form>
     </div>
     <div class="mdl-card__actions">
-        <button type="submit" (click)="cancelled.emit(item)"
+        <button type="submit" (click)="cancelled.emit(selectedItem)"
           class="mdl-button mdl-js-button mdl-js-ripple-effect">Cancel</button>
         <button type="submit" (click)="saved.emit(selectedItem)"
           class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect">Save</button>
@@ -72,11 +71,13 @@ class ItemList {
 })
 class ItemDetail {
   @Input('item') _item: Item;
+  originalName: string;
   selectedItem: Item;
   @Output() saved = new EventEmitter();
   @Output() cancelled = new EventEmitter();
-  
-  set _item(value){
+
+  set _item(value: Item){
+    if (value) this.originalName = value.name;
 	  this.selectedItem = Object.assign({}, value);
   }
 }
@@ -109,7 +110,6 @@ export class App {
   constructor(private itemsService: ItemsService, private store: Store<AppStore>) {
     this.items = itemsService.items;
     this.selectedItem = store.select('selectedItem');
-
     this.selectedItem.subscribe(v => console.log(v));
 
     itemsService.loadItems();

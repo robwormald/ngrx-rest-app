@@ -2,22 +2,18 @@
   "items": [
     {
       "id": 1,
-      "name": "Test!",
-      "description": ""
+      "name": "Item 1",
+      "description": "This is a description"
     },
     {
       "id": 2,
-      "name": "Test2!",
-      "description": ""
+      "name": "Item 2",
+      "description": "This is a description"
     },
     {
       "id": 3,
-      "name": "Test2!!!!",
-      "description": "yep"
-    },
-    {
-      "name": "test4",
-      "id": 4
+      "name": "Item 3",
+      "description": "This is a lovely item"
     }
   ]
 }
