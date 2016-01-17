@@ -71,7 +71,6 @@ export class ItemsService {
   }
 
   saveItem(item: Item) {
-    console.log('saving', item);
     (item.id) ? this.updateItem(item) : this.createItem(item);
   }
 

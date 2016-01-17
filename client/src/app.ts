@@ -16,9 +16,10 @@ import {Store} from '@ngrx/store';
       </div>
       <div class="mdl-card__supporting-text">
         {{item.description}}
+        <br>{{item | json}}
       </div>
       <div class="mdl-card__menu">
-        <button (click)="deleted.emit(item)"
+        <button (click)="deleted.emit(item); $event.stopPropagation();"
           class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
           <i class="material-icons">close</i>
         </button>
@@ -126,7 +127,7 @@ export class App {
 
   saveItem(item: Item) {
     this.itemsService.saveItem(item);
-	this.resetItem();
+    this.resetItem();
   }
 
   deleteItem(item: Item) {
