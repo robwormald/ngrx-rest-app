@@ -55,11 +55,16 @@ export interface Item{
   description: string;
 }
 
+export interface AppStore {
+  items: Item[],
+  selectedItem: Item
+}
+
 @Injectable()
 export class ItemsService {
   items: Observable<Array<Item>>;
 
-  constructor(private http: Http, private store: Store<Item>){
+  constructor(private http: Http, private store: Store<AppStore>){
     this.items = store.select('items');
   }
 
