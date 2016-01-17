@@ -4,7 +4,7 @@ A RESTful master-detail application built using Angular 2 and [ngrx store](https
 
 ### Getting Started
 
-There are two main parts to this application. The first is the server which we are using `json-server` to simulate a REST api. The second part is the Angular 2 application which we will use `lite-server` to display.  
+There are two main parts to this application. The first is the server which we are using `json-server` to simulate a REST api. The second part is the Angular 2 application which we will use `webpack-dev-server` to display.  
 
 To get started run the commands below.
 
