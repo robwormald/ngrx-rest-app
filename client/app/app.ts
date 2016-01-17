@@ -103,7 +103,7 @@ export class App {
 
   constructor(private itemsService:ItemsService, private store: Store<Item>) {
     this.items = itemsService.items;
-    this.selectedItem = store.select('selectedItem').filter(id => (id));
+    this.selectedItem = store.select('selectedItem').filter(id => !!id);
 
     this.selectedItem.subscribe(v => console.log(v));
     this.items.subscribe(v => this.resetItem());
