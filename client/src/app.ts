@@ -16,7 +16,6 @@ import {Store} from '@ngrx/store';
       </div>
       <div class="mdl-card__supporting-text">
         {{item.description}}
-        <br>{{item | json}}
       </div>
       <div class="mdl-card__menu">
         <button (click)="deleted.emit(item); $event.stopPropagation();"
