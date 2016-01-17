@@ -1,14 +1,14 @@
-import {Http, Headers} from 'angular2/http'
-import {Store} from '@ngrx/store'
-import {Injectable} from 'angular2/core'
+import {Http, Headers} from 'angular2/http';
+import {Store} from '@ngrx/store';
+import {Injectable} from 'angular2/core';
 import {Observable} from 'rxjs/Observable';
 
 //-------------------------------------------------------------------
 // ITEMS STORE
 //-------------------------------------------------------------------
 export const items = (state: any = [], {type, payload}) => {
-  let index:number;
-  switch(type){
+  let index: number;
+  switch (type) {
     case 'ADD_ITEMS':
       return payload;
     case 'CREATE_ITEM':
@@ -29,19 +29,19 @@ export const items = (state: any = [], {type, payload}) => {
     default:
       return state;
   }
-}
+};
 
 //-------------------------------------------------------------------
 // SELECTED ITEM STORE
 //-------------------------------------------------------------------
 export const selectedItem = (state: any = null, {type, payload}) => {
-  switch(type){
+  switch (type) {
     case 'SELECT_ITEM':
       return payload;
     default:
       return state;
   }
-}
+};
 
 //-------------------------------------------------------------------
 // ITEMS SERVICE
@@ -49,22 +49,22 @@ export const selectedItem = (state: any = null, {type, payload}) => {
 const BASE_URL = 'http://localhost:3000/items/';
 const HEADER = { headers: new Headers({ 'Content-Type': 'application/json'})};
 
-export interface Item{
+export interface Item {
   id: number;
   name: string;
   description: string;
-}
+};
 
 export interface AppStore {
-  items: Item[],
-  selectedItem: Item
-}
+  items: Item[];
+  selectedItem: Item;
+};
 
 @Injectable()
 export class ItemsService {
   items: Observable<Array<Item>>;
 
-  constructor(private http: Http, private store: Store<AppStore>){
+  constructor(private http: Http, private store: Store<AppStore>) {
     this.items = store.select('items');
   }
 

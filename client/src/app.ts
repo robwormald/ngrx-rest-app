@@ -1,8 +1,8 @@
 //our root app component
-import {Component, Input, Output, EventEmitter, ChangeDetectionStrategy} from 'angular2/core'
-import {ItemsService, Item, AppStore} from './items'
+import {Component, Input, Output, EventEmitter, ChangeDetectionStrategy} from 'angular2/core';
+import {ItemsService, Item, AppStore} from './items';
 import {Observable} from 'rxjs/Observable';
-import {Store} from '@ngrx/store'
+import {Store} from '@ngrx/store';
 
 //-------------------------------------------------------------------
 // ITEMS-LIST
@@ -101,7 +101,7 @@ export class App {
   items: Observable<Array<Item>>;
   selectedItem: Observable<Item>;
 
-  constructor(private itemsService:ItemsService, private store: Store<AppStore>) {
+  constructor(private itemsService: ItemsService, private store: Store<AppStore>) {
     this.items = itemsService.items;
     this.selectedItem = store.select('selectedItem').filter(id => !!id);
 
@@ -112,7 +112,7 @@ export class App {
   }
 
   resetItem() {
-    let emptyItem: Item = {id: null, name:'', description:''};
+    let emptyItem: Item = {id: null, name: '', description: ''};
     this.store.dispatch({type: 'SELECT_ITEM', payload: emptyItem});
   }
 
