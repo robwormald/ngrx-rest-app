@@ -3,6 +3,20 @@ import {Store} from '@ngrx/store';
 import {Injectable} from 'angular2/core';
 import {Observable} from 'rxjs/Observable';
 
+const BASE_URL = 'http://localhost:3000/items/';
+const HEADER = { headers: new Headers({ 'Content-Type': 'application/json' }) };
+
+export interface Item {
+  id: number;
+  name: string;
+  description: string;
+};
+
+export interface AppStore {
+  items: Item[];
+  selectedItem: Item;
+};
+
 //-------------------------------------------------------------------
 // ITEMS STORE
 //-------------------------------------------------------------------
@@ -41,20 +55,6 @@ export const selectedItem = (state: any = null, {type, payload}) => {
 //-------------------------------------------------------------------
 // ITEMS SERVICE
 //-------------------------------------------------------------------
-const BASE_URL = 'http://localhost:3000/items/';
-const HEADER = { headers: new Headers({ 'Content-Type': 'application/json' }) };
-
-export interface Item {
-  id: number;
-  name: string;
-  description: string;
-};
-
-export interface AppStore {
-  items: Item[];
-  selectedItem: Item;
-};
-
 @Injectable()
 export class ItemsService {
   items: Observable<Array<Item>>;
