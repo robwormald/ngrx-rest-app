@@ -41,21 +41,21 @@ class ItemList {
   template: `
   <div class="item-card mdl-card mdl-shadow--2dp">
     <div class="mdl-card__title">
-      <h2 class="mdl-card__title-text" *ngIf="item.id">Editing {{item.name}}</h2>
-      <h2 class="mdl-card__title-text" *ngIf="!item.id">Create New Item</h2>
+      <h2 class="mdl-card__title-text" *ngIf="selectedItem.id">Editing {{selectedItem.name}}</h2>
+      <h2 class="mdl-card__title-text" *ngIf="!selectedItem.id">Create New Item</h2>
     </div>
     <div class="mdl-card__supporting-text">
       <form novalidate>
           <div class="mdl-textfield mdl-js-textfield">
             <label>Item Name</label>
-            <input [(ngModel)]="item.name"
+            <input [(ngModel)]="selectedItem.name"
               placeholder="Enter a name"
               class="mdl-textfield__input" type="text">
           </div>
 
           <div class="mdl-textfield mdl-js-textfield">
             <label>Item Description</label>
-            <input [(ngModel)]="item.description"
+            <input [(ngModel)]="selectedItem.description"
               placeholder="Enter a description"
               class="mdl-textfield__input" type="text">
           </div>
@@ -64,16 +64,21 @@ class ItemList {
     <div class="mdl-card__actions">
         <button type="submit" (click)="cancelled.emit(item)"
           class="mdl-button mdl-js-button mdl-js-ripple-effect">Cancel</button>
-        <button type="submit" (click)="saved.emit(item)"
+        <button type="submit" (click)="saved.emit(selectedItem)"
           class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect">Save</button>
     </div>
   </div>
   `
 })
 class ItemDetail {
-  @Input() item: Item[];
+  @Input('item') _item: Item;
+  selectedItem: Item;
   @Output() saved = new EventEmitter();
   @Output() cancelled = new EventEmitter();
+  
+  set _item(value){
+	  this.selectedItem = Object.assign({}, value);
+  }
 }
 
 //-------------------------------------------------------------------
@@ -103,10 +108,9 @@ export class App {
 
   constructor(private itemsService:ItemsService, private store: Store<AppStore>) {
     this.items = itemsService.items;
-    this.selectedItem = store.select('selectedItem').filter(id => !!id);
+    this.selectedItem = store.select('selectedItem');
 
     this.selectedItem.subscribe(v => console.log(v));
-    this.items.subscribe(v => this.resetItem());
 
     itemsService.loadItems();
   }
@@ -122,6 +126,7 @@ export class App {
 
   saveItem(item: Item) {
     this.itemsService.saveItem(item);
+	this.resetItem();
   }
 
   deleteItem(item: Item) {
