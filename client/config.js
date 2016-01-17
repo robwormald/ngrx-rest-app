@@ -1,6 +1,6 @@
 System.config({
   //use typescript for compilation
-  transpiler: 'typescript',
+  //transpiler: 'typescript',
   //typescript compiler options
   typescriptOptions: {
     emitDecoratorMetadata: true
@@ -13,8 +13,8 @@ System.config({
   //packages defines our app package
   packages: {
     app: {
-      main: './main.ts',
-      defaultExtension: 'ts'
+      main: './main.js',
+      defaultExtension: 'js'
     }
   }
 });
