@@ -1,26 +1,12 @@
-import {Http, HTTP_PROVIDERS} from 'angular2/http';
-import {Item, AppStore, ItemsService, items, selectedItem} from '../src/items';
-import {Store, provideStore} from '@ngrx/store';
-import {Injector} from 'angular2/core';
+import {items, selectedItem} from '../src/items';
 
 import {
   it,
   describe,
-  expect,
-  inject,
-  injectAsync,
-  beforeEachProviders,
-  TestComponentBuilder
+  expect
 } from 'angular2/testing';
 
 describe('Items', () => {
-  let injector, store;
-  beforeEachProviders(() => [
-    provideStore({items, selectedItem}),
-    ItemsService,
-    HTTP_PROVIDERS
-  ]);
-
   describe('`selectedItem` store', () => {
     it('returns null by default', () => {
       let defaultState = selectedItem(undefined, {type: 'random', payload: {}});
@@ -77,22 +63,5 @@ describe('Items', () => {
 
       expect(stateItems).toEqual(result);
     });
-  });
-
-  describe('itemsService', () => {
-    it('items are defined', inject([ ItemsService ], (service, http) => {
-      expect(service.items).toBeDefined();
-    }));
-
-    // Won't run...for some reason the Http provider is not getting attached to the class properly
-    // it('#loadItems', inject([ ItemsService ], (service) => {
-    //   spyOn(service.http, 'get');
-    //   spyOn(service.store, 'dispatch');
-    //
-    //   service.loadItems();
-    //
-    //   expect(service.http.get).toHaveBeenCalled();
-    //   expect(service.store.dispatch).toHaveBeenCalled();
-    // }));
   });
 });

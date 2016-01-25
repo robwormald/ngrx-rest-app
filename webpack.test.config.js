@@ -8,21 +8,11 @@ var webpack = require('webpack');
  * Config
  */
 module.exports = {
-  // for faster builds use 'eval'
-  devtool: 'source-map',
+  devtool: 'inline-source-map',
   debug: true,
 
   entry: {
-    'vendor': './client/vendor.ts',
     'app': './client/bootstrap.ts' // our angular app
-  },
-
-  // Config for our build files
-  output: {
-    path: root('__build__'),
-    filename: '[name].js',
-    sourceMapFilename: '[name].map',
-    chunkFilename: '[id].chunk.js'
   },
 
   resolve: {
@@ -45,7 +35,7 @@ module.exports = {
             2375  // 2375 -> Duplicate string index signature
           ]
         },
-        exclude: [ /node_modules/ ]
+        exclude: [/node_modules/ ]
       },
 
       // Support for *.json files.
