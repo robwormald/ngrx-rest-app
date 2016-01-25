@@ -14,3 +14,5 @@ $ cd nxrx-rest-app
 $ npm install
 $ npm start
 ```
+
+Then navigate to [http://localhost:3001](http://localhost:3001) in your browser.
