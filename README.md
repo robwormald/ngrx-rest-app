@@ -10,7 +10,7 @@ To get started run the commands below.
 
 ```
 $ git clone https://github.com/simpulton/ngrx-rest-app.git
-$ cd nxrx-rest-app
+$ cd ngrx-rest-app
 $ npm install
 $ npm start
 ```
