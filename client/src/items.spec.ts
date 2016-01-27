@@ -1,4 +1,4 @@
-import {items, selectedItem} from '../src/items';
+import {items, selectedItem} from './items';
 
 import {
   it,

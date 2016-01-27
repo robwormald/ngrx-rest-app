@@ -19,8 +19,8 @@
   },
   "files": [
     "client/bootstrap.ts",
-    "client/spec/items.spec.ts",
     "client/src/app.ts",
+    "client/src/items.spec.ts",
     "client/src/items.ts",
     "client/vendor.ts"
   ]
