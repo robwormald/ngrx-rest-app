@@ -131,5 +131,6 @@ export class App {
 
   deleteItem(item: Item) {
     this.itemsService.deleteItem(item);
+    this.resetItem();
   }
 }
