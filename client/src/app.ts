@@ -126,11 +126,17 @@ export class App {
 
   saveItem(item: Item) {
     this.itemsService.saveItem(item);
+
+    // Generally, we would want to wait for the result of `itemsService.saveItem`
+    // before resetting the current item.
     this.resetItem();
   }
 
   deleteItem(item: Item) {
     this.itemsService.deleteItem(item);
+
+    // Generally, we would want to wait for the result of `itemsService.deleteItem`
+    // before resetting the current item.
     this.resetItem();
   }
 }
