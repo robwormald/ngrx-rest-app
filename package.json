@@ -18,14 +18,14 @@
     "test": "karma start"
   },
   "dependencies": {
-    "@ngrx/store": "^1.2.1",
-    "angular2": "^2.0.0-beta.0",
-    "es6-promise": "^3.0.2",
-    "es6-shim": "^0.33.13",
-    "es7-reflect-metadata": "^1.5.5",
+    "@ngrx/store": "1.2.1",
+    "angular2": "2.0.0-beta.0",
+    "es6-promise": "3.0.2",
+    "es6-shim": "0.33.13",
+    "es7-reflect-metadata": "1.5.5",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.0",
-    "zone.js": "^0.5.10"
+    "zone.js": "0.5.10"
   },
   "devDependencies": {
     "concurrently": "^1.0.0",
