@@ -1,27 +1,28 @@
 {
   "compilerOptions": {
-    "target": "ES5",
+    "target": "es5",
     "module": "commonjs",
-    "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": true
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "typings/main.d.ts",
+    "typings/main"
   ],
   "filesGlob": [
-    "client/**/*.ts"
+    "./client/**/*.ts",
+    "!./node_modules/**/*.ts",
+    "typings/browser.d.ts"
   ],
-  "compileOnSave": false,
-  "atom": {
-    "rewriteTsconfig": true
+  "awesomeTypescriptLoaderOptions": {
+    "useCache": true,
+    "resolveGlobs": true,
+    "forkChecker": true,
+    "cacheDirectory": "node_modules/.awesome-typescript-loader-cache"
   },
-  "files": [
-    "client/bootstrap.ts",
-    "client/src/app.ts",
-    "client/src/items.spec.ts",
-    "client/src/items.ts",
-    "client/vendor.ts"
-  ]
+  "compileOnSave": false,
+  "buildOnSave": false,
+  "atom": { "rewriteTsconfig": false }
 }
