@@ -4,7 +4,7 @@ A RESTful master-detail application built using Angular 2 and [ngrx store](https
 
 ## Dependencies
 - You must have `node v >= 4.0` and `npm` installed (via `brew install node` or [NodeJS.org](https://nodejs.org/en/));
-- `npm i -g typings webpack-dev-server webpack rimraf`
+ - `npm i -g typings webpack-dev-server webpack rimraf json-server`
 
 ### Getting Started
 
