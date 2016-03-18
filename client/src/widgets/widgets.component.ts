@@ -31,7 +31,10 @@ export class Widgets {
 
   constructor(_widgetsService: WidgetsService) {
     _widgetsService.loadWidgets()
-      .then(widgets => this.widgets = widgets);
+      .subscribe(
+        widgets => this.widgets = widgets,
+        error => console.error(error.json())
+      );
   }
 
   selectWidget(widget) {
