@@ -1,4 +1,6 @@
-export const items = (state: any = [], {type, payload}) => {
+import {Reducer, Action} from '@ngrx/store';
+
+export const items:Reducer<Array> = (state: any = [], {type, payload}: Action) => {
   switch (type) {
     case 'ADD_ITEMS':
       return payload;
