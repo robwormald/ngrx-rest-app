@@ -39,7 +39,10 @@ export class Widgets {
     this.selectedWidget = _store.select('selectedWidget');
 
     _widgetsService.loadWidgets()
-      .then(widgets => this.widgets = widgets);
+      .subscribe(
+        widgets => this.widgets = widgets,
+        error => console.error(error.json())
+      );
   }
 
   selectWidget(widget) {
