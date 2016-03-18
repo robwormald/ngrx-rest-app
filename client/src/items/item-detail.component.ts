@@ -1,10 +1,10 @@
 import {Component, Input, Output, EventEmitter} from 'angular2/core';
-import {Item} from './../common/services/items.service.ts';
+import {Item} from '../common/models/item.model';
 
 @Component({
   selector: 'item-detail',
   template: `
-  <div class="item-card mdl-card mdl-shadow--2dp">
+  <div class="fem-card mdl-card mdl-shadow--2dp">
     <div class="mdl-card__title">
       <h2 class="mdl-card__title-text" *ngIf="selectedItem.id">Editing {{originalName}}</h2>
       <h2 class="mdl-card__title-text" *ngIf="!selectedItem.id">Create New Item</h2>

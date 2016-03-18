@@ -1,10 +1,11 @@
 import {Component, Input, Output, EventEmitter} from 'angular2/core';
 import {Observable} from "rxjs/Observable";
 import {Store} from '@ngrx/store';
-import {ItemsService, Item, AppStore} from './../common/services/items.service.ts';
+import {ItemsService} from '../common/services/items.service.ts';
+import {AppStore} from '../common/models/appstore.model';
+import {Item} from '../common/models/item.model';
 import {ItemsList} from './items-list.component';
 import {ItemDetail} from './item-detail.component';
-
 
 @Component({
   selector: 'items',

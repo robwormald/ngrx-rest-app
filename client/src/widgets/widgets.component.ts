@@ -6,7 +6,8 @@ import {WidgetDetails} from './widget-details.component';
 @Component({
   selector: 'widgets',
   template: `
-    <div class="mdl-grid widgets">
+    <h4>Fix my inputs and outputs!</h4>
+    <div class="mdl-grid items">
       <div class="mdl-cell mdl-cell--6-col">
         <widgets-list [widgets]="widgets"
         (selected)="selectWidget($event)"></widgets-list>
@@ -35,7 +36,7 @@ export class Widgets {
   selectWidget(widget) {
     this.selectedWidget = widget;
   }
-  
+
   saveWidget(widget) {
     console.log('widget', widget);
   }

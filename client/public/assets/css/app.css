@@ -17,15 +17,15 @@ body {
   margin: 0 auto;
   padding: 0;
 }
-.item-card.mdl-card {
+.fem-card.mdl-card {
   width: 100%;
   min-height: inherit;
   cursor: pointer;
 }
-.item-card .mdl-textfield {
+.fem-card .mdl-textfield {
   width: 100%;
 }
-.item-card .mdl-textfield__input {
+.fem-card .mdl-textfield__input {
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, .12);
   display: block;
@@ -37,7 +37,7 @@ body {
   text-align: left;
   color: inherit;
 }
-.item-card label {
+.fem-card label {
   font-size: 12px;
   font-weight: bold;
 }

@@ -5,7 +5,7 @@ import {Widget} from "./../common/models/widget.model.ts";
 @Component({
     selector: 'widget-details',
     template: `
-  <div class="widget-card mdl-card mdl-shadow--2dp">
+  <div class="fem-card mdl-card mdl-shadow--2dp">
     <div class="mdl-card__title">
       <h2 class="mdl-card__title-text" *ngIf="selectedWidget.id">Editing {{originalName}}</h2>
       <h2 class="mdl-card__title-text" *ngIf="!selectedWidget.id">Create New Widget</h2>
@@ -43,12 +43,6 @@ export class WidgetDetails implements OnInit {
   originalName: string;
   selectedWidget: Widget;
   widgetForm: ControlGroup;
-  @Output() saved = new EventEmitter();
-
-  @Input() set widget(value: Widget){
-    if (value) this.originalName = value.name;
-    this.selectedWidget = Object.assign({}, value);
-  }
 
   constructor(private fb: FormBuilder) { }
 
