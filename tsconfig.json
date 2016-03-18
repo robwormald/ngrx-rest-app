@@ -4,25 +4,19 @@
     "module": "commonjs",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "sourceMap": true
-  },
-  "exclude": [
-    "node_modules",
-    "typings/main.d.ts",
-    "typings/main"
-  ],
-  "filesGlob": [
-    "./client/**/*.ts",
-    "!./node_modules/**/*.ts",
-    "typings/browser.d.ts"
-  ],
-  "awesomeTypescriptLoaderOptions": {
-    "useCache": true,
-    "resolveGlobs": true,
-    "forkChecker": true,
-    "cacheDirectory": "node_modules/.awesome-typescript-loader-cache"
+    "sourceMap": true,
+    "suppressImplicitAnyIndexErrors":true
   },
   "compileOnSave": false,
   "buildOnSave": false,
-  "atom": { "rewriteTsconfig": false }
+  "exclude": [
+    "node_modules"
+  ],
+  "filesGlob": [
+    "client/**/*.ts",
+    "typings/browser.d.ts"
+  ],
+  "atom": {
+    "rewriteTsconfig": false
+  }
 }

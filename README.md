@@ -2,6 +2,10 @@
 
 A RESTful master-detail application built using Angular 2 and [ngrx store](https://github.com/ngrx/store).
 
+## Dependencies
+- You must have `node v >= 4.0` and `npm` installed (via `brew install node` or [NodeJS.org](https://nodejs.org/en/));
+- `npm i -g typings webpack-dev-server webpack rimraf`
+
 ### Getting Started
 
 There are two main parts to this application. The first is the server which we are using `json-server` to simulate a REST api. The second part is the Angular 2 application which we will use `webpack-dev-server` to display.  
@@ -9,8 +13,8 @@ There are two main parts to this application. The first is the server which we a
 To get started run the commands below.
 
 ```
-$ git clone https://github.com/simpulton/ngrx-rest-app.git
-$ cd ngrx-rest-app
+$ git clone https://github.com/onehungrymind/fem-ng2-ngrx-app.git
+$ cd fem-ngrx-rest-app
 $ npm install
 $ npm start
 ```

@@ -1,28 +1,10 @@
 client/**/*.js
 client/**/*.map
 
-# OS generated files #
-.DS_Store
-ehthumbs.db
-Icon?
-Thumbs.db
+typings
+node_modules
+jspm_packages
+bower_components
 
-# Node Files #
-/node_modules
-/bower_components
-
-# Typing #
-/src/typings/tsd/
-/typings/
-/tsd_typings/
-
-# Dist #
-/dist
-/public/__build__/
-/src/*/__build__/
-__build__/**
-.webpack.json
-
-# IDE #
 .idea/
-*.swp
+.DS_Store

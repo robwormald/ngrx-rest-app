@@ -17,32 +17,9 @@
   </head>
 
   <body>
-    <div class="content mdl-layout mdl-js-layout mdl-layout--fixed-header">
-      <header class="mdl-layout__header">
-        <div class="mdl-layout__header-row">
-          <span class="mdl-layout-title">ANGULAR 2 with NGRX</span>
-          <!-- Add spacer, to align navigation to the right -->
-          <div class="mdl-layout-spacer"></div>
-          <!-- Navigation. We hide it in small screens. -->
-          <nav class="mdl-navigation mdl-layout--large-screen-only">
-            <a class="mdl-navigation__link" href="https://angular.io/" target="_blank">ANGULAR 2</a>
-            <a class="mdl-navigation__link" href="https://github.com/ngrx/store" target="_blank">NGRX</a>
-            <a class="mdl-navigation__link" href="https://github.com/simpulton/ngrx-rest-app" target="_blank">SOURCE CODE</a>
-          </nav>
-        </div>
-      </header>
-      <main class="mdl-layout__content page-content">
-        <my-app class="mdl-grid">
-          <div class="mdl-spinner mdl-js-spinner is-active"></div>
-        </my-app>
-      </main>
-    </div>
-
-    <!-- Common files to be cached -->
-    <script src="/__build__/common.js"></script>
-    <!-- Vendor files -->
-    <script src="/__build__/vendor.js"></script>
-    <!-- App script -->
-    <script src="/__build__/app.js"></script>
+    <my-app>
+      <div class="mdl-spinner mdl-js-spinner is-active"></div>
+    </my-app>
+    <script src="bundle.js"></script>
   </body>
 </html>
