@@ -1,6 +1,4 @@
-import {Reducer, Action} from '@ngrx/store';
-
-export const selectedItem:Reducer<any> = (state: any = null, {type, payload}: Action) => {
+export const selectedItem = (state: any = null, {type, payload}) => {
   switch (type) {
     case 'SELECT_ITEM':
       return payload;
