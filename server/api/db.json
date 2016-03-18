@@ -14,6 +14,11 @@
       "id": 3,
       "name": "Item 3",
       "description": "This is a lovely item"
+    },
+    {
+      "name": "hghg",
+      "description": "gfhg",
+      "id": 4
     }
   ],
   "widgets": [
@@ -31,6 +36,6 @@
       "id": 3,
       "name": "Widget 3",
       "price": 300
-    } 
+    }
   ]
 }
