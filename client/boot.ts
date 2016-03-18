@@ -17,12 +17,15 @@ import {App} from './src/app';
 import {ItemsService} from './src/common/services/items.service';
 import {items} from './src/common/stores/items.store';
 import {selectedItem} from './src/common/stores/selectedItem.store';
+import {selectedWidget} from './src/common/stores/selectedWidget.store';
+import {GadgetService} from "./src/common/services/gadget.service.ts";
 
 bootstrap(App, [
   HTTP_PROVIDERS,
   ROUTER_PROVIDERS,
   provide(LocationStrategy, {useClass: HashLocationStrategy}),
   ItemsService,
-  provideStore({items, selectedItem}),
+  GadgetService,
+  provideStore({items, selectedItem, selectedWidget}),
   instrumentStore()
 ]);

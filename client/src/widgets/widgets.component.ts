@@ -1,7 +1,11 @@
+import {Observable} from "rxjs/Observable";
+import {Store} from '@ngrx/store';
 import {Component} from 'angular2/core'
 import {WidgetsService} from './../common/services/widgets.service.ts';
 import {WidgetsList} from './widgets-list.component';
 import {WidgetDetails} from './widget-details.component';
+import {AppStore} from "../common/models/appstore.model";
+import {Widget} from "../common/models/widget.model";
 
 @Component({
   selector: 'widgets',
@@ -13,7 +17,8 @@ import {WidgetDetails} from './widget-details.component';
         (selected)="selectWidget($event)"></widgets-list>
       </div>
       <div class="mdl-cell mdl-cell--6-col">
-        <widget-details (saved)="saveWidget($event)" [widget]="selectedWidget"></widget-details>
+        <widget-details (saved)="saveWidget($event)"
+        [widget]="selectedWidget | async"></widget-details>
       </div>
     </div>
   `,
@@ -27,15 +32,18 @@ import {WidgetDetails} from './widget-details.component';
 })
 export class Widgets {
   widgets = [];
-  selectedWidget = {};
+  selectedWidget: Observable<Widget>;
 
-  constructor(_widgetsService: WidgetsService) {
+  constructor(private _widgetsService: WidgetsService,
+    private _store: Store<AppStore>) {
+    this.selectedWidget = _store.select('selectedWidget');
+
     _widgetsService.loadWidgets()
       .then(widgets => this.widgets = widgets);
   }
 
   selectWidget(widget) {
-    this.selectedWidget = widget;
+    this._store.dispatch({type: 'SELECT_WIDGET', payload: widget});
   }
 
   saveWidget(widget) {

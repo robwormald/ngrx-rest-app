@@ -7,6 +7,9 @@ import {Item} from '../common/models/item.model';
 import {ItemsList} from './items-list.component';
 import {ItemDetail} from './item-detail.component';
 
+import {Gadget} from '../common/models/gadget.model';
+import {GadgetService} from '../common/services/gadget.service.ts'
+
 @Component({
   selector: 'items',
   template: `
@@ -34,11 +37,16 @@ import {ItemDetail} from './item-detail.component';
 export class Items {
   items: Observable<Array<Item>>;
   selectedItem: Observable<Item>;
+  gadget: Observable<Gadget>;
 
-  constructor(private itemsService: ItemsService, private store: Store<AppStore>) {
+  constructor(private itemsService: ItemsService,
+              private gadgetService: GadgetService,
+              private store: Store<AppStore>) {
     this.items = itemsService.items;
     this.selectedItem = store.select('selectedItem');
     this.selectedItem.subscribe(v => console.log(v));
+
+    this.gadget = gadgetService.gadget;
 
     itemsService.loadItems();
   }
