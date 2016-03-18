@@ -5,6 +5,7 @@ import {Widget} from './../common/models/widget.model.ts';
     selector: 'widgets-list',
     template: `
     <div *ngFor="#widget of widgets"
+      (click)="selected.emit(widget)"
       class="fem-card mdl-card mdl-shadow--2dp">
       <div class="mdl-card__title">
         <h2 class="mdl-card__title-text">{{widget.name}}</h2>
@@ -16,5 +17,6 @@ import {Widget} from './../common/models/widget.model.ts';
     `
 })
 export class WidgetsList {
-  widgets: Widget[] = [];
+  @Input()widgets: Widget[];
+  @Output()selected = new EventEmitter();
 }

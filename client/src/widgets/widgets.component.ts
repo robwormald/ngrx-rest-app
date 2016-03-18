@@ -30,7 +30,8 @@ export class Widgets {
   selectedWidget = {};
 
   constructor(_widgetsService: WidgetsService) {
-    this.widgets = _widgetsService.widgets;
+    _widgetsService.loadWidgets()
+      .then(widgets => this.widgets = widgets);
   }
 
   selectWidget(widget) {
