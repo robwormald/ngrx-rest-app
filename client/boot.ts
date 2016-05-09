@@ -1,16 +1,13 @@
 import 'core-js';
-import 'zone.js/dist/zone-microtask';
+require('zone.js');
 import 'rxjs/Rx';
-import {bootstrap} from 'angular2/platform/browser';
-import {provide} from 'angular2/core';
-import {HTTP_PROVIDERS} from 'angular2/http';
+import {bootstrap} from '@angular/platform-browser-dynamic';
+import {provide} from '@angular/core';
+import {HTTP_PROVIDERS} from '@angular/http';
 import {instrumentStore} from '@ngrx/devtools'
 
-import {
-  ROUTER_PROVIDERS,
-  Location,
-  LocationStrategy,
-  HashLocationStrategy} from 'angular2/router';
+import {ROUTER_PROVIDERS} from '@angular/router';
+import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 
 import {provideStore} from '@ngrx/store';
 import {App} from './src/app';

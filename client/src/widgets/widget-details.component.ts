@@ -1,5 +1,5 @@
-import {Component, Input, Output, EventEmitter, OnInit} from 'angular2/core';
-import {FORM_DIRECTIVES, FORM_PROVIDERS, FormBuilder, Validators, ControlGroup} from 'angular2/common';
+import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
+import {FORM_DIRECTIVES, FORM_PROVIDERS, FormBuilder, Validators, ControlGroup} from '@angular/common';
 import {Widget} from "./../common/models/widget.model.ts";
 
 @Component({

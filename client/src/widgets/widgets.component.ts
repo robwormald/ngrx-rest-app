@@ -1,6 +1,6 @@
 import {Observable} from "rxjs/Observable";
 import {Store} from '@ngrx/store';
-import {Component} from 'angular2/core'
+import {Component} from '@angular/core'
 import {WidgetsService} from './../common/services/widgets.service.ts';
 import {WidgetsList} from './widgets-list.component';
 import {WidgetDetails} from './widget-details.component';

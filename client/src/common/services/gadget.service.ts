@@ -1,4 +1,4 @@
-import {Injectable} from 'angular2/core';
+import {Injectable} from '@angular/core';
 import {Reducer, Action, Store} from '@ngrx/store';
 import {Observable} from 'rxjs/Observable';
 
