@@ -15,7 +15,7 @@ import {Devtools} from '@ngrx/devtools';
 ])
 export class App {
   links = {
-    items: ['Items'],
-    widgets: ['Widgets']
+    items: ['/items'],
+    widgets: ['/widgets']
   }
 }

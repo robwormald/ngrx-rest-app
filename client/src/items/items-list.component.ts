@@ -4,7 +4,7 @@ import {Item} from '../common/models/item.model';
 @Component({
   selector: 'items-list',
   template: `
-  <div *ngFor="#item of items" (click)="selected.emit(item)"
+  <div *ngFor="let item of items" (click)="selected.emit(item)"
     class="fem-card mdl-card mdl-shadow--2dp">
     <div class="mdl-card__title">
       <h2 class="mdl-card__title-text">{{item.name}}</h2>
