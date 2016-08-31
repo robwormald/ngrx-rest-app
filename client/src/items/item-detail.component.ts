@@ -14,6 +14,7 @@ import {Item} from '../common/models/item.model';
           <div class="mdl-textfield mdl-js-textfield">
             <label>Item Name</label>
             <input [(ngModel)]="selectedItem.name"
+              name="name"
               placeholder="Enter a name"
               class="mdl-textfield__input" type="text">
           </div>
@@ -21,6 +22,7 @@ import {Item} from '../common/models/item.model';
           <div class="mdl-textfield mdl-js-textfield">
             <label>Item Description</label>
             <input [(ngModel)]="selectedItem.description"
+              name="description"
               placeholder="Enter a description"
               class="mdl-textfield__input" type="text">
           </div>

@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Reducer, Action, Store} from '@ngrx/store';
+import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs/Observable';
 
 import {AppStore} from '../models/appstore.model';

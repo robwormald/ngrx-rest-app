@@ -1,4 +1,4 @@
-import {Component, Input, Output, EventEmitter} from '@angular/core';
+import {Component} from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {Store} from '@ngrx/store';
 import {ItemsService} from '../common/services/items.service.ts';
