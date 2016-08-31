@@ -1,11 +1,5 @@
 import {items} from './items.store';
 
-import {
-  it,
-  describe,
-  expect
-} from '@angular/core/testing';
-
 describe('`items` store', () => {
   let initialState = [
     { id: 0, name: 'First Item' },

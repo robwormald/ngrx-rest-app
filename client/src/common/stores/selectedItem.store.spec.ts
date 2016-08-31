@@ -1,11 +1,5 @@
 import {selectedItem} from './selectedItem.store';
 
-import {
-  it,
-  describe,
-  expect
-} from '@angular/core/testing';
-
 describe('`selectedItem` store', () => {
   it('returns null by default', () => {
     let defaultState = selectedItem(undefined, {type: 'random', payload: {}});
