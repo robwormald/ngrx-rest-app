@@ -23,7 +23,7 @@
     "@ngrx/core": "1.0.0",
     "@ngrx/store": "2.1.2",
     "@ngrx/store-devtools": "3.0.0",
-    "@ngrx/store-log-monitor": "^3.0.0",
+    "@ngrx/store-log-monitor": "3.0.0",
     "es6-promise": "3.1.2",
     "es6-shim": "0.35.0",
     "lodash": "4.12.0",
