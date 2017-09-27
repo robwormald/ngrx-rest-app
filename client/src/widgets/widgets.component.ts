@@ -36,7 +36,7 @@ export class Widgets {
 
   constructor(private _widgetsService: WidgetsService,
     private _store: Store<AppStore>) {
-    this.selectedWidget = _store.select('selectedWidget');
+    this.selectedWidget = _store.select(state => state.selectedWidget);
 
     _widgetsService.loadWidgets()
       .subscribe(
